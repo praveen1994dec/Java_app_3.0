@@ -73,14 +73,13 @@ pipeline{
             }
         }
         stage('Push JAR to Jfrog : python'){
-        when { expression { params.action == 'create'} }
+         when { expression { params.action == 'create'} }
             steps{
                 script{
 
                     jarPush()
                 }
             }
-
         }
         stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
