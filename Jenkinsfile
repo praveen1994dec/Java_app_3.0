@@ -4,7 +4,6 @@ pipeline{
     stages{
          
         stage('Git Checkout'){
-                    when { expression {  params.action == 'create' } }
             steps{
             gitCheckout(
                 branch: "main",
