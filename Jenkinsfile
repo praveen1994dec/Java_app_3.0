@@ -8,6 +8,5 @@ pipeline{
             git clone -b main https://github.com/VootlaSaiCharan/Java_app_3.0.git"
             }
         }
-
 }
 }
