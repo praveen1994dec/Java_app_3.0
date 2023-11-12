@@ -5,7 +5,10 @@ pipeline{
          
         stage('Git Checkout'){
             steps{
-            git clone -b main https://github.com/VootlaSaiCharan/Java_app_3.0.git"
+            gitCheckout(
+                branch: "main",
+                url: "https://github.com/praveen1994dec/Java_app_3.0.git"
+            )
             }
         }
 }
