@@ -2,7 +2,7 @@
 
 pipeline{
 
-    agent any
+    agent Demo
 
     parameters{
 
