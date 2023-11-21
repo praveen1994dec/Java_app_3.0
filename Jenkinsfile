@@ -29,7 +29,7 @@ pipeline{
 
             steps{
                script{
-                   def maven = MAVEN-3.9
+                   def MAVEN = MAVEN-3.9
                    mvnTest()
                }
             }
