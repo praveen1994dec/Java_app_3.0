@@ -15,6 +15,7 @@ pipeline{
     tools {
         // Specify the Maven tool by name
         maven 'Maven-3.9'
+    }
 
     stages{
          
@@ -119,6 +120,5 @@ pipeline{
                }
             }
         }
-    }
     }
 }
