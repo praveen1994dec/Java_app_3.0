@@ -54,7 +54,7 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'SonarQube_server'
+                   def SonarQubecredentialsId = 'Sonar_token'
                    statiCodeAnalysis(SonarQubecredentialsId)
                }
             }
@@ -65,7 +65,7 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'Prime_SonarQube'
+                   def SonarQubecredentialsId = 'Sonar_token'
                    QualityGateStatus(SonarQubecredentialsId)
                }
             }
@@ -122,3 +122,4 @@ pipeline{
         }
     }
 }
+    
