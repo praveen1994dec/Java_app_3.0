@@ -33,7 +33,7 @@ pipeline{
                    mvnTest()
                }
             }
-        }'''
+        }
         
          stage('Integration Test maven'){
          when { expression {  params.action == 'create' } }
@@ -43,14 +43,14 @@ pipeline{
                    mvnIntegrationTest()
                }
             }
-        }
+        }'''
         
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
+                   def SonarQubecredentialsId = 'SonarQube_server'
                    statiCodeAnalysis(SonarQubecredentialsId)
                }
             }
@@ -61,7 +61,7 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
+                   def SonarQubecredentialsId = 'Prime_SonarQube'
                    QualityGateStatus(SonarQubecredentialsId)
                }
             }
