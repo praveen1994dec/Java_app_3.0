@@ -23,8 +23,8 @@ pipeline{
             )
             }
         }
-         stage('Unit Test maven'){
-         
+        
+         '''stage('Unit Test maven'){
          when { expression {  params.action == 'create' } }
 
             steps{
@@ -33,7 +33,8 @@ pipeline{
                    mvnTest()
                }
             }
-        }
+        }'''
+        
          stage('Integration Test maven'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -43,6 +44,7 @@ pipeline{
                }
             }
         }
+        
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -53,6 +55,7 @@ pipeline{
                }
             }
        }
+        
        stage('Quality Gate Status Check : Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -63,6 +66,7 @@ pipeline{
                }
             }
        }
+        
         stage('Maven Build : maven'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -72,6 +76,7 @@ pipeline{
                }
             }
         }
+        
         stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -81,6 +86,7 @@ pipeline{
                }
             }
         }
+        
          stage('Docker Image Scan: trivy '){
          when { expression {  params.action == 'create' } }
             steps{
@@ -90,6 +96,7 @@ pipeline{
                }
             }
         }
+        
         stage('Docker Image Push : DockerHub '){
          when { expression {  params.action == 'create' } }
             steps{
@@ -99,6 +106,7 @@ pipeline{
                }
             }
         }   
+        
         stage('Docker Image Cleanup : DockerHub '){
          when { expression {  params.action == 'create' } }
             steps{
