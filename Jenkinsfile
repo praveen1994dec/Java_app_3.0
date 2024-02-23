@@ -64,15 +64,15 @@ pipeline{
        //         }
        //      }
        // }
-        stage('Maven Build : maven'){
-         when { expression {  params.action == 'create' } }
-            steps{
-               script{
+        // stage('Maven Build : maven'){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
                    
-                   mvnBuild()
-               }
-            }
-        }
+        //            mvnBuild()
+        //        }
+        //     }
+        // }
 
                stage ('Pushing Jfrog File'){
          when { expression {  params.action == 'create' } }
