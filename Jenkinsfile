@@ -15,15 +15,15 @@ pipeline{
 
     stages{
          
-        stage('Git Checkout'){
-                    when { expression {  params.action == 'create' } }
-            steps{
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/praveen1994dec/Java_app_3.0.git"
-            )
-            }
-        }
+        // stage('Git Checkout'){
+        //             when { expression {  params.action == 'create' } }
+        //     steps{
+        //     gitCheckout(
+        //         branch: "main",
+        //         url: "https://github.com/praveen1994dec/Java_app_3.0.git"
+        //     )
+        //     }
+        // }
        //   stage('Unit Test maven'){
          
        //   when { expression {  params.action == 'create' } }
@@ -78,7 +78,7 @@ pipeline{
          when { expression {  params.action == 'create' } }
          steps{
            script{
-                sh 'curl -X PUT -u admin:password -T  /var/lib/jenkins/workspace/java-3.0/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar "http://18.234.253.20:8082/artifactory/example-repo-local/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar"'
+                sh 'curl -X PUT -u admin:password -T  /var/lib/jenkins/workspace/Java_app_3.0/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar "http://http://18.144.83.52:8082/artifactory/example-repo-local/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar"'
                }
            }
        }
